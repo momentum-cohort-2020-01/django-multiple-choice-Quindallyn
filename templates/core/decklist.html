@@ -6,5 +6,10 @@
         {% for deck in decks %}
         <li id={{deck.pk}}>Deck: {{deck.title}}</li>
         {% endfor %}
+        <!-- {% for flashcard in flashcards %}
+        <li id={{flashcard.pk}}>Flashcard: {{flashcard.side1}} {{flashcard.side2}}</li>
+        {% endfor %} -->
     </ul>
+    <a href="{% url 'create-deck' %}">First Create a New Deck</a>
+    <a href="{% url 'create-flashcard' %}">Then Create a New Flashcard and Connect it to your Deck</a>
 {% endblock %}

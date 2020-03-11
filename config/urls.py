@@ -22,6 +22,8 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.deck_list, name='decklist'),
+    path('create/deck/', views.create_deck, name="create-deck"),
+    path('create/flashcard/', views.create_flashcard, name="create-flashcard"),
     # path('flashcards', views.flashcard_runthrough, name="flashcardrunthrough")
 ]
 
