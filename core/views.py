@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
-def index (request):
-    return render(request, 'core/homepage.html') 
+def deck_list (request):
+    return render(request, 'core/decklist.html') 
 
-# Create your views here.
+# def flascard_runthrough (request):
+#     return render(request, 'core/flashcardrunthrough.html')

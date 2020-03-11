@@ -21,7 +21,8 @@ from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
+    path('', views.deck_list, name='decklist'),
+    # path('flashcards', views.flashcard_runthrough, name="flashcardrunthrough")
 ]
 
 if settings.DEBUG:
