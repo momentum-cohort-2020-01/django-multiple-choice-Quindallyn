@@ -24,7 +24,8 @@ urlpatterns = [
     path('', views.deck_list, name='decklist'),
     path('create/deck/', views.create_deck, name="create-deck"),
     path('create/flashcard/', views.create_flashcard, name="create-flashcard"),
-    # path('deck/detail', views.deck_details, name="deck-details")
+    path('accounts/', include('registration.backends.simple.urls')),
+    path('deck/detail', views.deck_details, name="deck-details")
     # path('flashcards', views.flashcard_runthrough, name="flashcardrunthrough")
 ]
 

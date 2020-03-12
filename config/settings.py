@@ -37,6 +37,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 'django.contrib.sites',
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -151,4 +153,9 @@ INTERNAL_IPS = [
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals())
+
+#django registration redux automatic log in
+REGISTRATION_AUTO_LOGIN=True
+LOGIN_REDIRECT_URL = '/'
+
 
