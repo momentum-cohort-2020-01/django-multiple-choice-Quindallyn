@@ -33,5 +33,8 @@ def create_flashcard (request):
         context= {'form':form}
         return render(request, 'core/render-form.html', context=context)
 
+def deck_details (request):
+    pass
+
 # def flascard_runthrough (request):
 #     return render(request, 'core/flashcardrunthrough.html')

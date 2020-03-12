@@ -87,7 +87,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {'default': env.db()}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'flashcards',
+        'USER': 'admin',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -139,3 +147,8 @@ INTERNAL_IPS = [
     '127.0.0.1',
     # ...
 ]
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
+
