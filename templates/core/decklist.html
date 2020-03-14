@@ -5,6 +5,7 @@
     <ul>
         {% for deck in decks %}
         <a href="{% url 'deck-details' %}"><li id={{deck.pk}}>Deck: {{deck.title}}</li></a>
+        <a href="{% url 'edit-deck' %}"><p>edit test</p></a>
         {% endfor %}
         <!-- {% for flashcard in flashcards %}
         <li id={{flashcard.pk}}>Flashcard: {{flashcard.side1}} {{flashcard.side2}}</li>

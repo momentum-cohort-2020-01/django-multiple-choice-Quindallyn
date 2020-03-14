@@ -33,6 +33,18 @@ def create_flashcard (request):
         context= {'form':form}
         return render(request, 'core/render-form.html', context=context)
 
+def edit_deck (request, pk):
+    deck = get_object_or_404(Deck, pk=pk)
+    if request.method == 'POST':
+        form = DeckForm(request.POST, instance=deck)
+        if form.is_valid():
+            form.save()
+            return redirect('decklist', pk=deck.pk)
+    else:
+        form=DeckForm(instance=deck)
+        context= {'form':form}
+        return render(request, 'core/edit_deck.html', context=context)
+
 def deck_details (request):
     pass
 
