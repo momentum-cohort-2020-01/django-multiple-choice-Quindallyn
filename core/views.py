@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import Deck, Flashcard
 from .forms import DeckForm, FlashcardForm
@@ -39,14 +39,18 @@ def edit_deck (request, pk):
         form = DeckForm(request.POST, instance=deck)
         if form.is_valid():
             form.save()
-            return redirect('decklist', pk=deck.pk)
+            return redirect('decklist')
     else:
         form=DeckForm(instance=deck)
         context= {'form':form}
-        return render(request, 'core/edit_deck.html', context=context)
+        return render(request, 'core/render-form.html', context=context)
 
-def deck_details (request):
-    pass
+def delete_deck (request, pk):
+    deck = get_object_or_404(Deck, pk=pk)
+    deck.delete()
+    return redirect('decklist')
 
-# def flascard_runthrough (request):
-#     return render(request, 'core/flashcardrunthrough.html')
+def flashcard_list (request):
+    flashcards=Flashcard.objects.all()
+    context = {"flashcards":flashcards}
+    return render(request, 'core/flashcard-list.html', context=context) 

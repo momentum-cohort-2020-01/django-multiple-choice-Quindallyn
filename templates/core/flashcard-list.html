@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% block content %}
+    <p>Add a flashcard to your Deck</p>
+
+    <ul>
+        {% for flashcard in flashcards %}
+        <a href="{% url 'flashcard-details' %}"><li id={{flashcard.pk}}>Deck: {{deck.title}}</li></a>
+        <a href="{% url 'edit-flashcard' flashcard.pk %}"><p>Edit</p></a>
+        <a href="{% url 'delete-flashcard' flashcard.pk %}"><p>Delete</p></a>
+        <li id={{flashcard.pk}}>Flashcard: {{flashcard.side1}} {{flashcard.side2}}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create-flashcard' %}">Add an additional Flashcard</a>
+{% endblock %}
