@@ -50,8 +50,9 @@ def delete_deck (request, pk):
     deck.delete()
     return redirect('decklist')
 
-def deck_details (request):
-    flashcards=Flashcard.objects.all()
+def deck_details (request, pk):
+    deck = deck.flashcard_set.all(pk=pk)
+    flashcards=Flashcard.objects.get(pk=pk)
     context = {"flashcards":flashcards}
     return render(request, 'core/deck-details.html', context=context) 
 
