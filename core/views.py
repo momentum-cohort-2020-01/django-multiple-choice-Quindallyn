@@ -50,7 +50,15 @@ def delete_deck (request, pk):
     deck.delete()
     return redirect('decklist')
 
-def flashcard_list (request):
+def deck_details (request):
     flashcards=Flashcard.objects.all()
     context = {"flashcards":flashcards}
-    return render(request, 'core/flashcard-list.html', context=context) 
+    return render(request, 'core/deck-details.html', context=context) 
+
+def quiz_yourself (request):
+    pass
+
+# def flashcard_list (request):
+#     flashcards=Flashcard.objects.all()
+#     context = {"flashcards":flashcards}
+#     return render(request, 'core/flashcard-list.html', context=context) 

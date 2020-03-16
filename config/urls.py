@@ -26,9 +26,9 @@ urlpatterns = [
     path('create/flashcard/', views.create_flashcard, name="create-flashcard"),
     path('accounts/', include('registration.backends.simple.urls')),
     path('edit/<int:pk>/deck/', views.edit_deck, name='edit-deck'),
-    # path('deck/detail', views.deck_details, name="deck-details"),
     path('delete/<int:pk>/deck', views.delete_deck, name="delete-deck"),
-    path('flashcards/list', views.flashcard_list, name="flashcard-list")
+    path('quiz/<int:pk>/yourself', views.quiz_yourself, name="quiz-yourself"),
+    path('deck/details', views.deck_details, name="deck-details"),
     path('delete/<int:pk>/flashcard', views.delete_deck, name="delete-flashcard"),
     path('edit/<int:pk>/flashcard/', views.edit_deck, name='edit-flashcard'),
 ]

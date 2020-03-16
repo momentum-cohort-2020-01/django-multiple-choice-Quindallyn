@@ -1,17 +1,17 @@
 {% extends 'base.html'%}
 {% block content %}
-    <p>Choose the Deck you would like to Study</p>
-
-    <ul>
+    <p>Encouraging Flashcard Learning</p>
+    <a href="{% url 'create-deck' %}">First Create a New Deck--></a>
+    <a href="{% url 'create-flashcard' %}">Then Create a New Flashcard and Connect it to your Deck</a>
+    <ol>
         {% for deck in decks %}
         <a href="{% url 'deck-details' %}"><li id={{deck.pk}}>Deck: {{deck.title}}</li></a>
         <a href="{% url 'edit-deck' deck.pk %}"><p>Edit</p></a>
         <a href="{% url 'delete-deck' deck.pk %}"><p>Delete</p></a>
+        <a href="{% url 'quiz-yourself' deck.pk %}"><p>QUIZ YOURSELF</p></a>
         {% endfor %}
         <!-- {% for flashcard in flashcards %}
         <li id={{flashcard.pk}}>Flashcard: {{flashcard.side1}} {{flashcard.side2}}</li>
         {% endfor %} -->
-    </ul>
-    <a href="{% url 'create-deck' %}">First Create a New Deck</a>
-    <a href="{% url 'create-flashcard' %}">Then Create a New Flashcard and Connect it to your Deck</a>
+    </ol>
 {% endblock %}
